@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailOTPAttachment", "EmailOTPAttachment\EmailOTPAttachment.csproj", "{7FECEA09-2785-48EB-B2CF-3C706334F7FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FECEA09-2785-48EB-B2CF-3C706334F7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FECEA09-2785-48EB-B2CF-3C706334F7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FECEA09-2785-48EB-B2CF-3C706334F7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FECEA09-2785-48EB-B2CF-3C706334F7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F711956-A844-433D-82B9-6F5A71B6450A}
+	EndGlobalSection
+EndGlobal
