@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewSchedule", "InterviewSchedule\InterviewSchedule.csproj", "{59504104-CEE2-471D-8696-D49C6C61BDE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59504104-CEE2-471D-8696-D49C6C61BDE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59504104-CEE2-471D-8696-D49C6C61BDE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59504104-CEE2-471D-8696-D49C6C61BDE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59504104-CEE2-471D-8696-D49C6C61BDE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51670696-7270-4B18-ABC1-BA87CCCAA5C2}
+	EndGlobalSection
+EndGlobal
