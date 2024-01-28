@@ -29,7 +29,6 @@ namespace Calendar
         }
 
 
-
         protected void calEvents_DayRender(object sender, DayRenderEventArgs e)
         {
             // Highlight dates on the calendar that have events associated with them
@@ -212,5 +211,93 @@ namespace Calendar
             }
             return eventsForSelectedDate;
         }
+
+
+        protected void gvEvents_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvEvents.EditIndex = e.NewEditIndex;
+            btnShowEvents_Click(sender, e); // Reload the GridView to enter edit mode
+        }
+
+
+        protected void gvEvents_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            GridViewRow row = gvEvents.Rows[e.RowIndex];
+            string eventDate = ((TextBox)row.Cells[2].Controls[0]).Text;
+            string eventText = ((TextBox)row.Cells[3].Controls[0]).Text;
+
+            // Perform the update operation using the event date and event text
+             UpdateEventDataInDatabase(DateTime.Parse(eventDate), eventText);
+
+            gvEvents.EditIndex = -1; // Exit edit mode
+            btnShowEvents_Click(sender, e); // Reload the GridView after the update
+        }
+
+
+        protected void gvEvents_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvEvents.EditIndex = -1; // Exit edit mode
+            btnShowEvents_Click(sender, e); // Reload the GridView without updating
+        }
+
+
+        private void UpdateEventDataInDatabase(DateTime selectedDate, string eventText)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Update the event text in the database for the selected date
+                string updateQuery = "UPDATE EventData SET EventText = @EventText WHERE EventDate = @EventDate";
+                using (SqlCommand cmd = new SqlCommand(updateQuery, connection))
+                {
+                    cmd.Parameters.AddWithValue("@EventDate", selectedDate);
+                    cmd.Parameters.AddWithValue("@EventText", eventText);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        protected void gvEvents_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = gvEvents.Rows[e.RowIndex];
+
+            // Ensure the cell contains a valid date string before attempting to parse
+            string dateString = row.Cells[2].Text;
+            DateTime eventDate;
+            if (DateTime.TryParse(dateString, out eventDate))
+            {
+                // Perform the delete operation using the event date
+                DeleteEventDataFromDatabase(eventDate);
+
+                btnShowEvents_Click(sender, e); // Reload the GridView after the delete
+            }
+            else
+            {
+                // Handle the case where the date string is not valid
+                // You may want to log an error or display a user-friendly message
+            }
+        }
+
+
+        private void DeleteEventDataFromDatabase(DateTime eventDate)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Delete the event from the database for the specified date
+                string deleteQuery = "DELETE FROM EventData WHERE EventDate = @EventDate";
+                using (SqlCommand cmd = new SqlCommand(deleteQuery, connection))
+                {
+                    cmd.Parameters.AddWithValue("@EventDate", eventDate);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
     }
 }
