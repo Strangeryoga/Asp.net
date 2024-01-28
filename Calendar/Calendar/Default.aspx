@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Event Calendar</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"><link />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
             <br />
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
             <br />
-            <asp:Calendar ID="calEvents" runat="server" OnDayRender="calEvents_DayRender" OnSelectionChanged="calEvents_SelectionChanged"></asp:Calendar>
+            <asp:Calendar ID="calEvents" runat="server" OnDayRender="calEvents_DayRender" OnSelectionChanged="calEvents_SelectionChanged" style="height: 300px;"></asp:Calendar>
             <br />
         <asp:Button ID="btnShowEvents" runat="server" Text="Show Events" OnClick="btnShowEvents_Click" CausesValidation="false" UseSubmitBehavior="false" />
             <asp:GridView ID="gvEvents" runat="server" AutoGenerateColumns="false">

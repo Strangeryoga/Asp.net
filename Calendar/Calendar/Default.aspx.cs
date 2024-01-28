@@ -18,12 +18,16 @@ namespace Calendar
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if the page is being loaded for the first time
-            if (!IsPostBack)
-            {
-                // Initialization code can be added here if needed
-            }
+            // Ensure that async is supported during postback
+            Page.RegisterAsyncTask(new PageAsyncTask(LoadDataAsync));
         }
+
+        private async Task LoadDataAsync()
+        {
+            // Simulate an asynchronous delay
+            await Task.Delay(1000);
+        }
+
 
 
         protected void calEvents_DayRender(object sender, DayRenderEventArgs e)
@@ -46,7 +50,33 @@ namespace Calendar
                     if (eventCount > 0)
                     {
                         e.Cell.BackColor = System.Drawing.Color.Yellow;
+
+                        // Retrieve and display event text for the current date in the cell
+                        string eventText = GetEventTextForDate(currentDate);
+
+                        // Add a LiteralControl to the cell containing the date and event text
+                        LiteralControl literalControl = new LiteralControl($"<br/>{eventText}");
+                        e.Cell.Controls.Add(literalControl);
                     }
+                }
+            }
+        }
+
+
+        // Helper method to get event text for a given date
+        private string GetEventTextForDate(DateTime date)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string selectQuery = "SELECT EventText FROM EventData WHERE EventDate = @EventDate";
+                using (SqlCommand selectCmd = new SqlCommand(selectQuery, connection))
+                {
+                    selectCmd.Parameters.AddWithValue("@EventDate", date);
+
+                    string eventText = selectCmd.ExecuteScalar()?.ToString();
+                    return eventText ?? "No events for this date";
                 }
             }
         }
@@ -66,7 +96,7 @@ namespace Calendar
                 // Show an alert confirming the submission
                 string alertMessage = $"Event on {selectedDate:yyyy-MM-dd}: {eventText}";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('{alertMessage}');", true);
-                
+
             }
             else
             {
@@ -101,7 +131,7 @@ namespace Calendar
                             cmd.ExecuteNonQuery();
                         }
                     }
-                   
+
                 }
             }
         }
