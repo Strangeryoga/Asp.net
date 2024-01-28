@@ -296,8 +296,5 @@ namespace Calendar
                 }
             }
         }
-
-
-
     }
 }
