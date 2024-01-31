@@ -42,7 +42,7 @@ namespace Attendance
                 Session.Clear();
 
                 // Redirect to the login page or any other appropriate page.
-                Response.Redirect("Default.aspx"); 
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -51,7 +51,7 @@ namespace Attendance
         private void UpdateCheckoutTime(string username)
         {
             // Database connection string.
-            string connectionString = "Data Source=DESKTOP-FROJFGN\\SQLEXPRESS;Initial Catalog=UserDB1;Integrated Security=True;Encrypt=False";
+            string connectionString = "Data Source=DESKTOP-8hlb8i7\\SQLEXPRESS;Initial Catalog=UserDB1;Integrated Security=True;Encrypt=False";
 
             // Open a connection to the database.
             using (SqlConnection connection = new SqlConnection(connectionString))
