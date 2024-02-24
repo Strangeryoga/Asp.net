@@ -324,7 +324,7 @@
         <asp:ListItem Text="Select Master Course" Value=""></asp:ListItem>
       </asp:DropDownList>
     </div>
-    <div class="GridViweC">
+    <div class="GridViweC text-center">
       <asp:GridView ID="gridViewCourses" runat="server" AutoGenerateColumns="False" CssClass="table">
         <Columns>
           <asp:BoundField DataField="CourseID" HeaderText="ID" />
