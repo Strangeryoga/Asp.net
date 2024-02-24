@@ -216,7 +216,7 @@
     <form id="form1" runat="server">
      <div class="container userDashboard">
     <h2 class="text-center">User Dashboard</h2>
-    <div class="table-responsive">
+    <div class="table-responsive text-center">
       <asp:GridView ID="gridViewUsers" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover">
         <Columns>
           <asp:BoundField DataField="UserId" HeaderText="ID" ItemStyle-CssClass="text-center" />
