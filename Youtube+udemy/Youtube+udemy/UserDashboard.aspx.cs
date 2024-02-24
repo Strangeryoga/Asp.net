@@ -167,11 +167,9 @@ namespace Youtubeudemy
 
         private void BindVideos(int courseId)
         {
-            // Fetch videos for the selected course from the database
-            string connectionString = "Data Source=DESKTOP-FROJFGN\\SQLEXPRESS;Initial Catalog=udemy;Integrated Security=True;";
             string query = "SELECT VideoName, YouTubeEmbedCode FROM Videos WHERE CourseID = @CourseId";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(GetConnectionString()))
             {
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
