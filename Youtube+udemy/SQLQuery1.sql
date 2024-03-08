@@ -1,7 +1,4 @@
-create database udemy1;
 
-
-use udemy1;
 
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
@@ -19,7 +16,7 @@ CREATE TABLE AdminUsers (
 );
 
 -- Inserting sample admin user for testing
-INSERT INTO AdminUsers (Email, Password) VALUES ('admin@example.com', 'admin');
+	INSERT INTO AdminUsers (Email, Password) VALUES ('admin@example.com', 'admin');
 
 
 -- Table for courses
@@ -31,17 +28,17 @@ CREATE TABLE Courses (
 ALTER TABLE Courses
 ADD MasterCourseID INT;
 
-ALTER TABLE Courses
-ADD CONSTRAINT FK_Courses_MasterCourse
-FOREIGN KEY (MasterCourseID)
-REFERENCES MasterCourse(MasterCourseID);
-
-
 
 CREATE TABLE MasterCourse (
     MasterCourseID INT PRIMARY KEY IDENTITY(1,1),
     MasterCourseName VARCHAR(100)
 );
+
+ALTER TABLE Courses
+ADD CONSTRAINT FK_Courses_MasterCourse
+FOREIGN KEY (MasterCourseID)
+REFERENCES MasterCourse(MasterCourseID);
+
 
 create TABLE Videos (
     VideoID INT IDENTITY(1,1) PRIMARY KEY,
@@ -94,6 +91,8 @@ DROP COLUMN YoutubeUrl;
 ALTER TABLE Videos
 ADD YouTubeEmbedCode NVARCHAR(MAX);
 
+
+use udemy;
 
 select * from AdminUsers;
 select * from Users;
