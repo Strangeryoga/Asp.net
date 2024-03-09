@@ -92,6 +92,30 @@ ALTER TABLE Videos
 ADD YouTubeEmbedCode NVARCHAR(MAX);
 
 
+// for deleting the records
+-- Step 1: Delete records from child tables
+DELETE FROM UserCourses WHERE UserID IN (SELECT UserID FROM Users);
+DELETE FROM UserMasterCourses WHERE UserID IN (SELECT UserID FROM Users);
+
+-- Step 2: Delete records from Users table
+DELETE FROM Users;
+
+-- Step 3: Optionally, delete records from Courses and MasterCourse tables
+DELETE FROM Courses;
+DELETE FROM MasterCourse;
+
+
+-- Step 1: Delete records from child tables
+DELETE FROM UserCourses;
+DELETE FROM UserMasterCourses;
+DELETE FROM Videos;
+
+-- Step 2: Delete records from Courses and MasterCourse tables
+DELETE FROM Courses;
+DELETE FROM MasterCourse;
+
+
+
 use udemy;
 
 select * from AdminUsers;
