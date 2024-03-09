@@ -66,8 +66,8 @@
                     Video Player
                 </div>
                 <div class="card-body">
-                    <iframe id="videoPlayer" runat="server" width="800" height="450" frameborder="0" allowfullscreen></iframe>
-                </div>
+                    <iframe id="videoPlayer" runat="server" style="width: 100%;" height="450" frameborder="0" allowfullscreen></iframe>      
+                          </div>
             </div>
         </div>
     </div>
