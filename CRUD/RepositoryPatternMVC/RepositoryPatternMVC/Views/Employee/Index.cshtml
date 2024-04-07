@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<Emp>
+
+<h1>Index</h1>
+
+@if(TempData["msg"]!=null)
+{
+    @TempData["msg"]
+}
+<br />
+<a asp-controller="Employee" asp-action="AddEmp" class="btn btn-info">Add New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var d in Model)
+        {
+            <tr>
+                <th scope="row">@d.Id</th>
+                <td>@d.Name</td>
+                <td>@d.Dept</td>
+                <td>@d.Salary</td>
+                <td>
+                    <a asp-controller="Employee" asp-action="DeleteEmp" asp-route-id="@d.Id" class="btn btn-sm btn-danger">Delete</a>
+                    <a asp-controller="Employee" asp-action="EditEmp" asp-route-id="@d.Id" class="btn btn-sm btn-success">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<input type="button" value="Add Emp" id="btn" class="btn btn-info"/>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Dept</th>
+            <th scope="col">Salary</th>
+        </tr>
+    </thead>
+    <tbody id="tdata">
+        
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closebtn">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="myform">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" name="Name" id="Name" aria-describedby="emailHelp" placeholder="Enter Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Dept</label>
+                        <input type="text" class="form-control" name="Dept" id="Dept" aria-describedby="emailHelp" placeholder="Enter Dept">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Salary</label>
+                        <input type="text" class="form-control" name="Salary" id="Salary" aria-describedby="emailHelp" placeholder="Enter Salary">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                
+                <button type="button" class="btn btn-primary" id="savebtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/doc.js"></script>

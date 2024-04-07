@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\StoredProceduresCoreMVCB1.props" />
+</Project>

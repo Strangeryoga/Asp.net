@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\StoredProceduresCoreMVCB1.props" />
+</Project>
