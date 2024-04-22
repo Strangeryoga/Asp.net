@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<User>
+
+<h1>Index</h1>
+
+@if (TempData["msg"] != null)
+{
+    @TempData["msg"]
+}
+
+<a asp-controller="User" asp-action="AddUser" class="btn btn-info">Add New</a>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Action</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <th scope="row">@d.Id</th>
+                <td>@d.FirstName</td>
+                <td>@d.LastName</td>
+                <td>@d.Email</td>
+                <td>@d.PhoneNumber</td>
+                <td>
+                    <a asp-controller="User" asp-action="EditUser" asp-route-id="@d.Id" class="btn btn-sm btn-success">Edit</a>
+                    <a asp-controller="User" asp-action="DeleteUser" asp-route-id="@d.Id" class="btn btn-sm btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

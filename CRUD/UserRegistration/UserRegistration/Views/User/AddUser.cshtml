@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "AddUser";
+}
+
+<h1>AddUser</h1>
+
+@model User
+
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">FirstName</label>
+        <input type="text" asp-for="FirstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="FirstName"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">LastName</label>
+        <input type="text" asp-for="LastName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="LastName"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="text" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+        <input type="text" asp-for="PhoneNumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

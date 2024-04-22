@@ -1,0 +1,39 @@
+﻿@model UserRegistration.Models.User
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+</head>
+<body>
+    <h1>Edit User</h1>
+    <form asp-action="EditUser" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">FirstName</label>
+            <input type="text" asp-for="FirstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <span asp-validation-for="FirstName"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">LastName</label>
+            <input type="text" asp-for="LastName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <span asp-validation-for="LastName"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="text" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+            <input type="text" asp-for="PhoneNumber" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</body>
+</html>
